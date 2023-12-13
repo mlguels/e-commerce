@@ -14,7 +14,7 @@ const Promotion = () => {
   })
 
   const targetDate = new Date()
-  targetDate.setDate(targetDate.getDate() + 3)
+  targetDate.setDate(targetDate.getDate() + 40)
 
   useEffect(() => {
     const timerInterval = setInterval(() => {
