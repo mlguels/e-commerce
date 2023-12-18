@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { set } from 'react-hook-form'
 
 import { Category } from '../../../../payload/payload-types'
 import { Checkbox } from '../../../_components/Checkbox'
@@ -13,7 +14,16 @@ import classes from './index.module.scss'
 const Filters = ({ categories }: { categories: Category[] }) => {
   const { categoryFilters, sort, setCategoryFilters, setSort } = useFilter()
 
-  const handleCategories = (categoryId: string) => {}
+  const handleCategories = (categoryId: string) => {
+    if (categoryFilters.includes(categoryId)) {
+      const updatedCategories = categoryFilters.filter(id => id !== categoryId)
+
+      setCategoryFilters(updatedCategories)
+    } else {
+      setCategoryFilters([...categoryFilters, categoryId])
+    }
+  }
+
   const handleSort = () => {}
 
   return (
